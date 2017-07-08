@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Checkbox } from 'antd';
 
 class BadgeService extends Component {
   handleChange = (e) => {
@@ -17,12 +18,9 @@ class BadgeService extends Component {
   render() {
     return (
       <div>
-        <input
-          type="checkbox"
-          name="badge-service1"
-          onChange={this.handleChange}
-        />
-        {this.props.name}
+        <Checkbox onChange={this.handleChange}>
+          {this.props.name}
+        </Checkbox>
       </div>
     )
   }

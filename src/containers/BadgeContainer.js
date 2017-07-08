@@ -9,7 +9,7 @@ class BadgeContainer extends Component {
     })
 
     return (
-      <div>
+      <div className="badgeContainer">
         {badges}
       </div>
     )

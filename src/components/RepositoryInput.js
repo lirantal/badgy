@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import { Form, Row, Input, Button, Icon } from 'antd';
+
+const FormItem = Form.Item;
+const formItemLayout = {
+  labelCol: { span: 6 },
+  wrapperCol: { span: 14 }
+};
 
 class RepositoryInput extends Component {
   handleChange = (e) => {
@@ -10,18 +17,16 @@ class RepositoryInput extends Component {
   }
 
   render() {
-    const inputAttributes = {
-      placeholder: this.props.placeholder,
-      type: 'text',
-      size: '100',
-      className: 'repository-input'
-    };
-
     return (
-      <input
-        {...inputAttributes}
-        onChange={this.handleChange}
-      />
+      <FormItem
+        label={this.props.label}
+        {...formItemLayout}
+      >
+        <Input
+          placeholder={this.props.placeholder}
+          onChange={this.handleChange}
+        />
+      </FormItem>
     );
   }
 }

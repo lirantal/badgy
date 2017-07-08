@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import RepositoryContainer from './containers/RepositoryContainer';
 import BadgeContainer from './containers/BadgeContainer';
 import BadgeServiceContainer from './containers/BadgeServiceContainer';
@@ -51,23 +49,21 @@ class App extends Component {
 
     return (
       <div className="App">
-
-        <div className="App-header">
+        <div className="repository-container">
           <RepositoryContainer
             onRepositoryResourcesUpdate={this.onRepositoryResourcesUpdate}
           />
-          <img src={logo} className="App-logo" alt="logo" />
         </div>
 
-        <div className="badge-container">
-          <BadgeContainer badges={badges} />
-        </div>
-
-        <div className="badge-service-container">
+        <div>
           <BadgeServiceContainer
             repositories={this.state.repositoryResources}
             onBadgeServiceUpdate={this.onBadgeServiceUpdate}
           />
+        </div>
+
+        <div>
+          <BadgeContainer badges={badges} />
         </div>
 
       </div>

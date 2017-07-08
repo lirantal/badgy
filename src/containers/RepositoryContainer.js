@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
 import RepositoryInput from '../components/RepositoryInput';
 
+import { Form, Row } from 'antd';
+
 class RepositoryContainer extends Component {
   render() {
     return (
       <div>
-        npm:
-        <RepositoryInput
-          repositoryName="npm"
-          onChangeCB={this.props.onRepositoryResourcesUpdate}
-          placeholder="https://www.npmjs.org/lirantal/express-request-route"
-        />
+        <Form
+        className="formLayout"
+        >
+          <Row gutter={40}>
+            <RepositoryInput
+              repositoryName="github"
+              label="GitHub URL:"
+              onChangeCB={this.props.onRepositoryResourcesUpdate}
+              placeholder="https://www.npmjs.org/lirantal/express-request-route"
+            />
+          </Row>
 
-        <br/><br/>
-
-        GitHub:
-        <RepositoryInput
-          repositoryName="github"
-          onChangeCB={this.props.onRepositoryResourcesUpdate}
-          placeholder="https://www.github.com/lirantal/dockly"
-        />
+          <Row gutter={40}>
+            <RepositoryInput
+              repositoryName="npm"
+              label="npm URL:"
+              onChangeCB={this.props.onRepositoryResourcesUpdate}
+              placeholder="https://www.npmjs.org/lirantal/express-request-route"
+            />
+          </Row>
+        </Form>
       </div>
     )
   }

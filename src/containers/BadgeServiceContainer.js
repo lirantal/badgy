@@ -4,7 +4,7 @@ import BadgeService from '../components/BadgeService';
 class BadgeServiceContainer extends Component {
   render() {
     return (
-      <div>
+      <div className="badgeServiceContainer">
         <BadgeService
           type="npm"
           name="npmVersion"
