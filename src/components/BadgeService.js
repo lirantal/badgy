@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Marked from 'marked/lib/marked';
 import { Checkbox } from 'antd';
 
 class BadgeService extends Component {
@@ -10,7 +11,7 @@ class BadgeService extends Component {
       processBadge: (url) => {
         const urlItems = url.split('/');
         const packageName = urlItems[urlItems.length - 1]
-        return `[![view on npm](http://img.shields.io/npm/v/${packageName}.svg)](https://www.npmjs.org/package/${packageName})`;
+        return Marked.parse(`[![view on npm](http://img.shields.io/npm/v/${packageName}.svg)](https://www.npmjs.org/package/${packageName})`);
       }
     })
   }
