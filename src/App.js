@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import RepositoryContainer from './containers/RepositoryContainer';
 import BadgeContainer from './containers/BadgeContainer';
 import BadgeServiceContainer from './containers/BadgeServiceContainer';
+import Marked from 'marked/lib/marked';
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class App extends Component {
     this.state = {
       repositoryResources: {},
       badgeService: badgeServices
-    }
+    };
   }
 
   onRepositoryResourcesUpdate = (repositoryResource) => {
@@ -42,8 +43,8 @@ class App extends Component {
     this.state.badgeService.forEach((badge, key) => {
       if (this.state.repositoryResources.hasOwnProperty(badge.type)) {
         const repository = this.state.repositoryResources[badge.type];
-        const badgeMarkdown = badge.processBadge(repository.repositoryUrl)
-        badges.set(badge.name, badgeMarkdown)
+        const badgeMarkdown = Marked.parse(badge.processBadge(repository.repositoryUrl));
+        badges.set(badge.name, badgeMarkdown);
       }
     })
 
